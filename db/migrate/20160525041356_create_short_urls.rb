@@ -1,0 +1,10 @@
+class CreateShortUrls < ActiveRecord::Migration
+  def change
+    create_table :short_urls do |t|
+      t.integer :user_id
+      t.string :url
+
+      t.timestamps null: false
+    end
+  end
+end
