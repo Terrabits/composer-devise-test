@@ -11,7 +11,7 @@ puts 'CREATED ADMIN USER: ' << user.email
 if Rails.env.development?
   # Users
   99.times do |n|
-    name     = Faker::Name
+    name     = Faker::Name.name
     email    = "example-#{n+1}@railstutorial.org"
     password = "password"
     User.create(name: name,

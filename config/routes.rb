@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources  :short_urls, only: [:create]
   root to:   'visitors#index'
+  resources  :short_urls, only: [:create]
   devise_for :users
   resources  :users
 end
