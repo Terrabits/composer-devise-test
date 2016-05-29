@@ -2,6 +2,7 @@
   <div class="row">
     <h3>Users</h3>
     <div class="column">
+      <%= will_paginate %>
       <table class="table">
         <tbody>
           <% @users.each do |user| %>
@@ -11,6 +12,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= will_paginate %>
     </div>
   </div>
 </div>

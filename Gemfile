@@ -8,18 +8,25 @@ gem 'coffee-rails',  '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder',      '~> 2.0'
-group :development, :test do
-  gem 'byebug'
-end
-group :development do
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
-end
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'high_voltage'
+gem 'will_paginate',           '~> 3.1.0'
+gem 'bootstrap-will_paginate', '~> 0.0.10'
+
 group :development do
+  gem 'web-console', '~> 2.0'
+  gem 'spring'
   #gem 'better_errors'
   gem 'quiet_assets'
   gem 'rails_layout'
+end
+
+group :test do
+  gem 'minitest-reporters', '~> 1.1.9'
+end
+
+group :development, :test do
+  gem 'byebug'
+  gem 'faker'
 end

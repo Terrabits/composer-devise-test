@@ -7,3 +7,25 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 user = CreateAdminService.new.call
 puts 'CREATED ADMIN USER: ' << user.email
+
+if Rails.env.development?
+  # Users
+  99.times do |n|
+    name     = Faker::Name
+    email    = "example-#{n+1}@railstutorial.org"
+    password = "password"
+    User.create(name: name,
+                email: email,
+                password: password,
+                password_confirmation: password,
+                confirmed_at: Time.zone.now)
+  end
+
+  # Short Urls
+  users = User.order(:created_at).take(6)
+  50.times do
+    title = Faker::Lorem.sentence(5)
+    url   = Faker::Internet.url
+    users.each { |user| user.short_urls.create(title: title, url: url) }
+  end
+end

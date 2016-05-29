@@ -1,49 +1,27 @@
 require 'test_helper'
 
 class ShortUrlsControllerTest < ActionController::TestCase
-  setup do
-    @short_url = short_urls(:one)
-  end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:short_urls)
-  end
-
-  test "should get new" do
-    get :new
-    assert_response :success
+  def setup
+    @user      = users(:nick)
+    @title = "title"
+    @url = 'http://google.com'
+    sign_in @user
   end
 
   test "should create short_url" do
+    request.env['HTTP_REFERER'] = root_url
     assert_difference('ShortUrl.count') do
-      post :create, short_url: { url: @short_url.url, user_id: @short_url.user_id }
+      post :create, short_url: { title: @title, url: @url }
     end
 
-    assert_redirected_to short_url_path(assigns(:short_url))
   end
 
-  test "should show short_url" do
-    get :show, id: @short_url
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @short_url
-    assert_response :success
-  end
-
-  test "should update short_url" do
-    patch :update, id: @short_url, short_url: { url: @short_url.url, user_id: @short_url.user_id }
-    assert_redirected_to short_url_path(assigns(:short_url))
-  end
-
-  test "should destroy short_url" do
-    assert_difference('ShortUrl.count', -1) do
-      delete :destroy, id: @short_url
+  test "should not create short_url if not logged in" do
+    sign_out
+    assert_no_difference('ShortUrl.count') do
+      request.env['HTTP_REFERER'] = root_url
+      post :create, short_url: { title: @title, url: @url }
     end
-
-    assert_redirected_to short_urls_path
   end
 end
