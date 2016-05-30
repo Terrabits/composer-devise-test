@@ -1,7 +1,8 @@
 require 'uri'
 
 class ShortUrl < ActiveRecord::Base
-  validates :url, presence: true
+  validates :user_id, presence: true
+  validates :url,     presence: true
   validate :acceptable_url
   belongs_to :user
 
@@ -28,9 +29,11 @@ class ShortUrl < ActiveRecord::Base
   private
 
   def acceptable_url
-    self.url = ShortUrl.valid_url?(url)
-    if !url
+    processed_url = ShortUrl.valid_url?(url)
+    if !processed_url
       errors.add(:url, "is not valid")
+    else
+      self.url = processed_url
     end
   end
 

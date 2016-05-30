@@ -14,15 +14,12 @@
 ActiveRecord::Schema.define(version: 20160528211144) do
 
   create_table "short_urls", force: :cascade do |t|
-    t.string   "url"
     t.integer  "user_id"
+    t.string   "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "title"
   end
-
-  add_index "short_urls", ["user_id", "created_at"], name: "index_short_urls_on_user_id_and_created_at"
-  add_index "short_urls", ["user_id"], name: "index_short_urls_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
