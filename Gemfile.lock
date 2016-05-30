@@ -187,10 +187,10 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   minitest-reporters (~> 1.1.9)
-  pg
+  pg (~> 0.18.4)
   quiet_assets
   rails (= 4.2.6)
-  rails_12factor
+  rails_12factor (~> 0.0.3)
   rails_layout
   sass-rails (~> 5.0)
   spring
