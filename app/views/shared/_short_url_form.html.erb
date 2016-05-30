@@ -1,10 +1,10 @@
-<%= form_for(@short_url) do |f| %>
-  <% if @short_url.errors.any? %>
+<%= form_for(@new_url) do |f| %>
+  <% if @new_url.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@short_url.errors.count, "error") %>:</h2>
+      <h2><%= pluralize(@new_url.errors.count, "error") %>:</h2>
 
       <ul>
-      <% @short_url.errors.full_messages.each do |message| %>
+      <% @new_url.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

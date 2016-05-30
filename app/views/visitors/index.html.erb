@@ -1,2 +1,7 @@
-<h3>Welcome</h3>
-<p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
+<% if !@user %>
+  <h3>Short Url</h3>
+  <p><%= User.count %> registered <%= 'user'.pluralize(User.count) %> and counting.</p>
+<% else %>
+  <%= render 'shared/short_url_form' %>
+  <%= render 'shared/short_urls' %>
+<% end %>
