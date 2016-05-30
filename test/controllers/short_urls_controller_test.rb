@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class ShortUrlsControllerTest < ActionController::TestCase
-
   def setup
     @user        = users(:nick)
     @title       = Faker::Lorem.sentence(3)
