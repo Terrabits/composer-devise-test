@@ -1,10 +1,19 @@
 require 'uri'
+require 'base_62'
 
 class ShortUrl < ActiveRecord::Base
   validates :user_id, presence: true
   validates :url,     presence: true
   validate :acceptable_url
   belongs_to :user
+
+  def shorten
+    Base62.f_to_base_62(self.id)
+  end
+
+  def ShortUrl.lengthen(shortened_id)
+    Base62.base_62_to_f(shortened_id)
+  end
 
   def ShortUrl.valid_url?(url)
     begin
@@ -36,5 +45,4 @@ class ShortUrl < ActiveRecord::Base
       self.url = processed_url
     end
   end
-
 end

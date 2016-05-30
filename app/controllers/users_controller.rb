@@ -7,9 +7,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    unless @user == current_user
-      redirect_to :back
-    end
+    @short_urls = @user.short_urls.order('created_at desc').paginate(page: params[:page])
+    # unless @user == current_user
+    #   flash[:error] = "Access denied"
+    #   redirect_to :back
+    # end
   end
 
 end

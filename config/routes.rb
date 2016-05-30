@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources  :short_urls, only: [:create]
   devise_for :users
   resources  :users,      only: [:index, :show]
+  get 'a/:id', to: 'redirect#to_url', as: 'shortened'
 end
