@@ -1,25 +1,15 @@
-<%= form_for(@new_url) do |f| %>
-  <% if @new_url.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@new_url.errors.count, "error") %>:</h2>
-
-      <ul>
-      <% @new_url.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="short-url_form">
+  <%= form_for(@new_url) do |f| %>
+    <h3>New short url</h3>
+    <%= render 'shared/form_errors', object: @new_url %>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
     </div>
+    <div class="form-group">
+      <%= f.label :url %>
+      <%= f.text_field :url, class: 'form-control' %>
+    </div>
+    <%= f.submit class: 'btn btn-primary right' %>
   <% end %>
-
-  <div>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

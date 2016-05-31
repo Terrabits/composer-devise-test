@@ -1,13 +1,11 @@
 <% if @short_urls %>
-<%= will_paginate @short_urls %>
-<ul>
+  <%= will_paginate @short_urls %>
   <% @short_urls.each do |short_url| %>
-  <li>
+  <div class="row">
     <%= render partial: 'shared/short_url', locals: { short_url: short_url } %>
-  </li>
+  </div>
   <% end %>
-</ul>
-<%= will_paginate @short_urls %>
+  <%= will_paginate @short_urls %>
 <% else %>
-<p>No short urls.</p>
+  <p><strong>No URLs :-(<strong></p>
 <% end %>

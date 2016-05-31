@@ -7,6 +7,7 @@ class ShortUrlsController < ApplicationController
     if @short_url.save
       redirect_to :back, notice: 'Short url was successfully created.'
     else
+      flash[:error] = @short_url.errors.full_messages.first
       redirect_to :back
     end
   end

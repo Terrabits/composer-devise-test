@@ -1,3 +1,4 @@
+<div class="col-md-6 col-md-offset-3">
 <% if !@user %>
   <h3>Short Url</h3>
   <p><%= User.count %> registered <%= 'user'.pluralize(User.count) %> and counting.</p>
@@ -5,3 +6,4 @@
   <%= render 'shared/short_url_form' %>
   <%= render 'shared/short_urls' %>
 <% end %>
+</div>

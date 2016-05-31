@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  padding-top: 75px;
+}
+div.authform {
+  max-width: 300px;
+  margin: auto;
+}
+
+.right {
+  float: right;
+}

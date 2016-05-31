@@ -1,3 +1,9 @@
-<%= short_url.title %><br>
-<%= link_to(shortened_url(short_url.shorten), shortened_url(short_url.shorten)) %><br>
-Original link: <%= link_to(short_url.url, short_url.url) %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <strong><%= short_url.title %></strong>
+  </div>
+  <div class="panel-body">
+    <%= link_to(shortened_url(short_url.shorten), shortened_url(short_url.shorten)) %>
+    <%= link_to(short_url.url, short_url.url, class: 'right') %>
+  </div>
+</div>
