@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Devise Test" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Short Url" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Devise Test" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -13,8 +13,10 @@
       <%= render 'layouts/navigation' %>
     </header>
     <main role="main">
+      <div class="container">
        <%= render 'layouts/messages' %>
        <%= yield %>
+     </div>
     </main>
   </body>
 </html>
