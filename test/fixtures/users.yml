@@ -8,18 +8,19 @@ nick:
   name:               Nick Lalic
   email:              nick.lalic@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, "foobar") %>
-  confirmed_at:       Time.zone.now
+  confirmed_at:       <%= Time.zone.now %>
+  admin:              true
 
 mike:
   name:               Michael Phillips
   email:              michael.phillips@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, "foobar") %>
-  confirmed_at:       Time.zone.now
+  confirmed_at:       <%= Time.zone.now %>
 
 <% 30.times do |n| %>
 user_<%= n %>:
   name:               <%= "User #{n}" %>
   email:              <%= "user-#{n}@example.com" %>
   encrypted_password: <%= Devise::Encryptor.digest(User, "foobar") %>
-  confirmed_at:       Time.zone.now
+  confirmed_at:       <%= Time.zone.now %>
 <% end %>

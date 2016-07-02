@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 user = CreateAdminService.new.call
+user.update_attributes(admin: true)
 puts 'CREATED ADMIN USER: ' << user.email
 
 if Rails.env.development?

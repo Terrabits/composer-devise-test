@@ -17,8 +17,20 @@ class ActionController::TestCase
   def sign_in(user)
     warden.instance_variable_set('@users', { user: user })
   end
-  
+
   def sign_out
     warden.instance_variable_set('@users', {})
+  end
+end
+
+class ActionDispatch::IntegrationTest
+  def sign_in(user, options = {})
+    password = options[:password] || "password"
+    post_via_redirect user_session_path, user: { email: user.email, password: password }
+  end
+
+  def sign_out
+    # Does this work?
+    # delete destroy_user_session_path
   end
 end
