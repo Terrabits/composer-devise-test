@@ -30,6 +30,7 @@ end
 group :development, :test do
   gem 'byebug', '~> 9.0.5'
   gem 'faker' , '~> 1.6.6'
+  gem 'lunchy', '~> 0.10.4'
 end
 
 group :production do

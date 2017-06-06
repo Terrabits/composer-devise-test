@@ -83,6 +83,7 @@ GEM
     json (1.8.3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
+    lunchy (0.10.4)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
     mime-types (3.1)
@@ -188,6 +189,7 @@ DEPENDENCIES
   high_voltage (~> 3.0.0)
   jbuilder (~> 2.6.0)
   jquery-rails (~> 4.1.1)
+  lunchy (~> 0.10.4)
   minitest-reporters (~> 1.1.11)
   pg (~> 0.18.4)
   quiet_assets (~> 1.1.0)
@@ -205,4 +207,4 @@ RUBY VERSION
    ruby 2.3.0p0
 
 BUNDLED WITH
-   1.12.5
+   1.15.1
